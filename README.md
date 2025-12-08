@@ -1,117 +1,146 @@
-📊 Exchange Rate Scraper
+# 📊 Exchange Rate Scraper
 
-A simple Python project that fetches real-time exchange rates using the ExchangeRate-API, sorts the currencies by value, and saves the results as CSV and Excel files.
+A Python script to fetch **real-time currency exchange rates** from the ExchangeRate-API, sort currencies by value, and export the result as **CSV** and **Excel**.
 
-This project can be used as a building block for:
+This project is ideal for:
+- Financial dashboards
+- Currency converter tools
+- Market research automation
+- Treasury reporting
+- Data analysis learning exercises
 
-Fintech dashboards
+---
 
-Currency converter tools
+## ✨ Features
 
-Market analysis scripts
+✔ Fetch latest exchange rates (USD base)  
+✔ Save results to `.csv` and `.xlsx`  
+✔ Auto-create output folder  
+✔ Timestamped filenames  
+✔ Overwrite protection dialog  
+✔ GUI notifications (tkinter)  
+✔ Logging for debugging  
+✔ Environment variable API key  
 
-Treasury reporting automation
+---
 
-✨ Features
+## 🛠 Tech Stack
 
-✔ Fetch real-time exchange rates
-✔ Sort currencies by rate descending
-✔ Save results as .csv and .xlsx
-✔ Auto-create output folder
-✔ File name includes timestamp
-✔ Overwrite protection (confirmation dialog)
-✔ Simple GUI alerts using tkinter
+| Component | Tool |
+|----------|------|
+| Language | Python 3 |
+| HTTP     | requests |
+| Data     | pandas |
+| Export   | openpyxl |
+| GUI      | tkinter |
+| Logging  | logging |
+| Env Vars | python-dotenv |
 
-🛠️ Tech Stack
-Component	Tool
-Language	Python 3
-HTTP	requests
-Data	pandas
-Export	openpyxl
-GUI	tkinter
+---
 
-📦 Installation
-1️⃣ Clone the repo
+## 📦 Installation
+
+### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/pouya-razavi21/exchange-rate-scraper.git
-
-2️⃣ Install dependencies
+cd exchange-rate-scraper
+2️⃣ Create virtual environment (recommended)
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate     # Linux/Mac
+venv\Scripts\activate        # Windows
+3️⃣ Install dependencies
+bash
+Copy code
 pip install -r requirements.txt
+🔑 API Setup
+This project requires an API key from:
+➡ https://www.exchangerate-api.com/
 
+Create a .env file in the project root:
+
+env
+Copy code
+API_KEY=your_api_key_here
+Or copy the example:
+
+bash
+Copy code
+cp .env.example .env
 ▶️ Usage
-
 Run the script:
 
+bash
+Copy code
 python ./src/exchange_rate_scraper.py
+Files will be created under:
 
+java
+Copy code
+exports/
+Example filename:
 
-Files will be saved in the exports/ folder, with a timestamped name.
-
-🔑 API Setup
-
-This project uses ExchangeRate-API.
-
-Get your own API key here:
-https://www.exchangerate-api.com/
-
-Then open the script and replace:
-
-api_key = "YOUR_API_KEY"
-
+Copy code
+exchange_rates_2025-12-08_14-30-02.xlsx
 📂 Project Structure
-exchange-rate-scraper
+arduino
+Copy code
+exchange-rate-scraper/
 │── src/
 │   └── exchange_rate_scraper.py
-│── exports/
+│── exports/            # auto-created output
+│── .env.example
+│── requirements.txt
+│── README.md
 │── LICENSE
 │── .gitignore
-│── README.md
-│── requirements.txt
+🧪 Sample Output
+Example rows sorted by rate:
 
-🧪 Example Output
-
-Example CSV:
-
-Currency,Rate
-KWD,3.259
-BHD,2.652
-OMR,2.600
-GBP,1.249
-EUR,1.082
+python-repl
+Copy code
+Currency  Rate
+KWD       3.2590
+BHD       2.6520
+OMR       2.6000
+GBP       1.2490
+EUR       1.0820
 ...
+🧭 Notes & Limitations
+Base currency is fixed to USD
+
+API has call limits (free tier)
+
+Requires internet access
+
+No CLI flags yet
+
+Future improvements:
+
+CLI options (--base, --save-type)
+
+UI application
+
+Convert to Docker
+
+Auto-upload to Google Sheets
 
 🤝 Contributing
-
 Pull Requests are welcome.
-Please create a feature branch:
 
+Create a feature branch:
+
+bash
+Copy code
 git checkout -b feature-name
-
 🪪 License
-
 This project is licensed under the MIT License.
 
 ⭐ Support
+If you like this project, give it a star ⭐ on GitHub.
 
-If you like this project, please give it a star ⭐ on GitHub!
-
-🚀 About the Author
-
-Built by Pouya Razavi, as a learning project for
-Python + API + data automation.
-
-🧭 Notes
-
-This project can be extended with:
-
-CLI flags
-
-Logging
-
-Exception handling
-
-Currency converter UI
-
-Docker packaging
-
-Auto upload to Google Sheets
+👨‍💻 Author
+Built by Pouya Razavi as a learning project for:
+Python + API + Data Automation
 
