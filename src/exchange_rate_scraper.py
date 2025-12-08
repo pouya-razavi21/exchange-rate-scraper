@@ -36,6 +36,9 @@ except requests.exceptions.RequestException as e:
 except ValueError:
     messagebox.showerror("Parse Error", f"پاسخ API قابل تبدیل به JSON نبود.")
     exit()
+
+if 'error' in data:
+    logging.error(f"API Error: {data.get('error-type')}")
 if data.get("result") != "success":
     messagebox.showerror("خطا", "API دیتا نداد.")
     exit()
@@ -64,6 +67,9 @@ def save_with_prompt(df, path, write_func):
 
 save_with_prompt(rates_df, filename_csv, lambda p: rates_df.to_csv(p, index=False, encoding="utf-8-sig"))
 save_with_prompt(rates_df, filename_xlsx, lambda p: rates_df.to_excel(p, index=False, engine="openpyxl"))
+
+logging.info(f"Saved CSV: {filename_csv}")
+logging.info(f"Saved Excel: {filename_xlsx}")
 
 
 # if os.path.exists(filename_csv):
