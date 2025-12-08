@@ -1,9 +1,16 @@
+# Python
+pycache/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+ENV/
+.venv/
 # Byte-compiled / optimized / DLL files
-/exports
 __pycache__/
 *.py[cod]
 *$py.class
-
 # C extensions
 *.so
 
@@ -180,3 +187,13 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# exports(output files)
+exports/
+
+# IDE
+vscode/
+idea/
+
+# envfiles
+env.
