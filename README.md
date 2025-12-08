@@ -27,3 +27,7 @@ Python 3.10+
 ```bash
 pip install -r requirements.txt
 
+## Demo
+![Terminal output](docs/terminal.jpg)
+![Exports folder](docs/exports_list.jpg)
+
