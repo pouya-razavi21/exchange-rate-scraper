@@ -4,6 +4,7 @@ exchange_rate_scraper.py
 Fetches exchange rates from ExchangeRate-API and saves to CSV/XLSX.
 
 - Input: API key via environment variable `API_KEY`
+- API Docs: https://www.exchangerate-api.com/docs/overview
 - Output: timestamped CSV and XLSX files in project_root/exports/
 - Dependencies: requests, pandas, python-dotenv, openpyxl, tkinter
 """
@@ -31,9 +32,11 @@ root.withdraw()
 load_dotenv()
 BASE_CURRENCY = "USD"
 api_key = os.getenv('API_KEY')
+BASE_URL = "https://v6.exchangerate-api.com/v6"
 if not api_key:
     messagebox.showerror("Error", "در env. API_KEY تعریف نشده.")
-url = (f"https://v6.exchangerate-api.com/v6/{api_key}/latest/{BASE_CURRENCY}")
+    sys.exit(1)
+url = (f"{BASE_URL}/{api_key}/latest/{BASE_CURRENCY}")
 
 # Determine project root and export directory
 # Create exports directory if not exists
